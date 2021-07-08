@@ -13,7 +13,7 @@ export class ActivityComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setActivity = () => {
+  renderActivity = () => {
     this.activitiesService.setActivity(this.activity);
     console.log(this.activity);
   };
