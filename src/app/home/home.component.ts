@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
       this.activityArray = response;
       this.activitiesService.setActivity(this.activityArray);
     });
+    this.showActivity();
   };
 
   showActivity = () => {
