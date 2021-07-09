@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivitiesService } from '../activities.service';
+import { ActivityData } from '../interfaces/activity-data';
 
 @Component({
   selector: 'app-activity',
@@ -7,14 +8,15 @@ import { ActivitiesService } from '../activities.service';
   styleUrls: ['./activity.component.css'],
 })
 export class ActivityComponent implements OnInit {
-  activity: any[] = [];
+  activity: ActivityData[] = [];
+  @Input() activityRef!: ActivityData[];
 
   constructor(private activitiesService: ActivitiesService) {}
 
   ngOnInit(): void {}
 
-  renderActivity = () => {
-    this.activitiesService.setActivity(this.activity);
-    console.log(this.activity);
-  };
+  // renderActivity = () => {
+  //   this.activitiesService.setActivity(this.activity);
+  //   console.log(this.activity);
+  // };
 }

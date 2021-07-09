@@ -2,5 +2,12 @@
 
 <button (click)="selectRandom()">Random</button>
 
-<app-activities></app-activities>
+<app-activities (activityEvent)="showActivity()"></app-activities>
 <app-activity></app-activity>
+
+<div>
+  <p>{{ activity }}</p>
+  <p>{{ type }}</p>
+  <p>{{ price }}</p>
+  <p>{{ accessibility }}</p>
+</div>

@@ -8,6 +8,7 @@ import { ActivityData } from './interfaces/activity-data';
 export class ActivitiesService {
   baseUrl: string = 'http://www.boredapi.com';
   selectedActivity: any[] = [];
+  activity: any = {};
 
   constructor(private http: HttpClient) {}
 
@@ -20,15 +21,12 @@ export class ActivitiesService {
   };
 
   setActivity = (activity: ActivityData[]) => {
-    this.selectedActivity.unshift(activity);
-    this.showActivity();
+    this.selectedActivity.push(activity);
+    this.newActivity();
   };
 
-  showActivity = () => {
-    console.log(this.selectedActivity[0].activity);
-    console.log(this.selectedActivity[0].type);
-    console.log(this.selectedActivity[0].price);
-    console.log(this.selectedActivity[0].accessibility);
-    return this.selectedActivity[0];
+  newActivity = () => {
+    this.activity = this.selectedActivity;
+    return this.activity;
   };
 }
