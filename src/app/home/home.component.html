@@ -7,6 +7,11 @@
 <div>
   <p>{{ activity }}</p>
   <p>{{ type }}</p>
-  <p>{{ price }}</p>
+  <p *ngIf="price < 0.11">$</p>
+  <p *ngIf="price > 0.1 && price < 0.21">$$</p>
+  <p *ngIf="price > 0.21 && price < 0.31">$$$</p>
+  <p *ngIf="price > 0.31 && price < 0.41">$$$$</p>
+  <p *ngIf="price > 0.4">$$$$$</p>
+
   <p>{{ accessibility }}</p>
 </div>

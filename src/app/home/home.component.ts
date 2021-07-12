@@ -9,7 +9,6 @@ import { ActivityData } from '../interfaces/activity-data';
 })
 export class HomeComponent implements OnInit {
   activityObject: ActivityData[] = [];
-  selectedActivity: ActivityData[] = [];
   activity!: string;
   type!: string;
   price!: number;
@@ -18,15 +17,6 @@ export class HomeComponent implements OnInit {
   constructor(private activitiesService: ActivitiesService) {}
 
   ngOnInit(): void {}
-
-  // selectRandom = () => {
-  //   this.activitiesService.getRandomActivity().subscribe((response: any) => {
-  //     this.activityObject = response;
-  //     console.log(this.activityObject);
-  //     this.activitiesService.setActivity(this.activityObject);
-  //     this.showActivity();
-  //   });
-  // };
 
   showActivity = () => {
     this.activityObject = this.activitiesService.newActivity();
@@ -38,3 +28,6 @@ export class HomeComponent implements OnInit {
     });
   };
 }
+// if(item.price <= .3){
+//   this.price === this.priceLow
+// }
