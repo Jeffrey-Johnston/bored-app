@@ -20,7 +20,6 @@ export class ActivitiesService {
 
   setActivity = (activity: any) => {
     this.selectedActivity.push(activity);
-    this.newActivity();
   };
 
   newActivity = () => {
