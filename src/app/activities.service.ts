@@ -8,7 +8,6 @@ import { ActivityData } from './interfaces/activity-data';
 export class ActivitiesService {
   baseUrl: string = 'http://www.boredapi.com';
   selectedActivity: any[] = [];
-  activity: any = {};
 
   constructor(private http: HttpClient) {}
 
@@ -20,13 +19,12 @@ export class ActivitiesService {
     return this.http.get(`${this.baseUrl}/api/activity?type=${activity}`);
   };
 
-  setActivity = (activity: ActivityData[]) => {
+  setActivity = (activity: any) => {
     this.selectedActivity.push(activity);
     this.newActivity();
   };
 
   newActivity = () => {
-    this.activity = this.selectedActivity;
-    return this.activity;
+    return this.selectedActivity;
   };
 }

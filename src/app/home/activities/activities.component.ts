@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivitiesService } from 'src/app/activities.service';
-import { ActivityData } from 'src/app/interfaces/activity-data';
 
 @Component({
   selector: 'app-activities',
@@ -8,25 +7,28 @@ import { ActivityData } from 'src/app/interfaces/activity-data';
   styleUrls: ['./activities.component.css'],
 })
 export class ActivitiesComponent implements OnInit {
-  activityArray: ActivityData[] = [];
-  activity: any = {};
+  activityObject: any = {};
   @Output() activityEvent = new EventEmitter<void>();
 
   constructor(private activitiesService: ActivitiesService) {}
 
   ngOnInit(): void {}
 
-  // emitActivityEven = ()=>{
-  //   this.activityEvent.emit()
-  // }
+  selectRandom = () => {
+    this.activitiesService.getRandomActivity().subscribe((response: any) => {
+      this.activityObject = response;
+      this.activitiesService.setActivity(this.activityObject);
+      this.activityEvent.emit();
+    });
+  };
 
   getActivity = (activity: string) => {
     this.activitiesService
       .fetchActivity(activity)
       .subscribe((response: any) => {
-        this.activityArray = response;
-        this.activitiesService.setActivity(this.activityArray);
+        this.activityObject = response;
+        this.activitiesService.setActivity(this.activityObject);
+        this.activityEvent.emit();
       });
-    this.activityEvent.emit(this.activity);
   };
 }
