@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from '../activities.service';
 import { ActivityData } from '../interfaces/activity-data';
 
@@ -28,6 +28,3 @@ export class HomeComponent implements OnInit {
     });
   };
 }
-// if(item.price <= .3){
-//   this.price === this.priceLow
-// }
